@@ -1,8 +1,8 @@
 package example
 
-object Exits extends App {
+object Exits {
 
-  override def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit = {
     try {
       try {
         sys.exit(1)

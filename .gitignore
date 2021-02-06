@@ -21,6 +21,7 @@ dynamodb-local/
 .scala_dependencies
 .worksheet
 .idea
+.bsp
 project/target
 *.env
 

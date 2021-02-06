@@ -1,11 +1,12 @@
 package example
 
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import org.scalatest.prop.TableDrivenPropertyChecks
-import org.scalatest.{FlatSpec, Matchers}
 
-class Lesson2Spec extends FlatSpec with Matchers with TableDrivenPropertyChecks {
+class Lesson2Spec extends AnyFlatSpec with Matchers with TableDrivenPropertyChecks {
 
-  val scenarios = Table(
+  private val scenarios = Table(
     ("blocks", "out"),
     (Array(2, 6, 8, 5), 3),
     (Array(1, 5, 5, 2, 6), 4),

@@ -1,14 +1,16 @@
 package example
 
 import org.scalatest.prop.TableDrivenPropertyChecks
-import org.scalatest.{EitherValues, FlatSpec, Matchers}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.EitherValues
 
-class Lesson5Spec extends FlatSpec with Matchers with TableDrivenPropertyChecks with EitherValues {
+class Lesson5Spec extends AnyFlatSpec with Matchers with TableDrivenPropertyChecks with EitherValues {
 
   private val MinLength = 0
   private val MaxLength = 200
 
-  val scenarios = Table(
+  private val scenarios = Table(
     ("inputStrings", "longestCommonPrefix"),
     (Array("boat", "car", "airplane"), ""),
     (Array("flower", "flow", "flight"), "fl"),
@@ -19,11 +21,11 @@ class Lesson5Spec extends FlatSpec with Matchers with TableDrivenPropertyChecks 
 
   forAll(scenarios) { (inputStrings, longestCommonPrefix) =>
     "solution" should s"return [$longestCommonPrefix] as the longest common prefix when given strings ${inputStrings.mkString(", ")}" in {
-      Lesson5.solution(inputStrings).right.value shouldBe longestCommonPrefix
+      Lesson5.solution(inputStrings).value shouldBe longestCommonPrefix
     }
   }
 
-  val errorScenarios = Table(
+  private val errorScenarios = Table(
     ("inputStrings", "errorMsg"),
     (Array("1boat", "car", "airplane"), s"requirement failed: [1boat] must only contain lower case english letters $MinLength to $MaxLength long"),
     (Array("Boat", "car", "airplane"), s"requirement failed: [Boat] must only contain lower case english letters $MinLength to $MaxLength long"),

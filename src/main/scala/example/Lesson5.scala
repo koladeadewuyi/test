@@ -1,6 +1,7 @@
 package example
 
 //import scala.annotation.tailrec
+import scala.collection.parallel.CollectionConverters._
 
 object Lesson5 {
 
@@ -24,7 +25,7 @@ object Lesson5 {
           .flatMap { validFirstStr =>
           inputStrings.tail.par
             .map(validate(_).map(longestCommonPrefix(validFirstStr, _)))
-            .minBy(_.right.getOrElse("").length)
+            .minBy(_.getOrElse("").length)
         }
       case Array(_, _*) => Left(s"requirement failed: Input string array must be between $MinLength and $MaxLength long")
       case _ => Right("")
