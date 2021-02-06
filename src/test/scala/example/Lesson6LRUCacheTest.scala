@@ -6,14 +6,14 @@ import org.scalatest.matchers.should.Matchers
 
 class Lesson6LRUCacheTest extends AnyFlatSpec with Matchers with OptionValues {
 
-  val FirstTestKey = "firstTestKey"
-  val FirstTestValue = "firstTestValue"
+  private val FirstTestKey = "firstTestKey"
+  private val FirstTestValue = "firstTestValue"
 
-  val SecondTestKey = "secondTestKey"
-  val SecondTestValue = "secondTestValue"
+  private val SecondTestKey = "secondTestKey"
+  private val SecondTestValue = "secondTestValue"
 
-  val ThirdTestKey = "thirdTestKey"
-  val ThirdTestValue = "thirdTestValue"
+  private val ThirdTestKey = "thirdTestKey"
+  private val ThirdTestValue = "thirdTestValue"
 
   it should "add single item to cache when within capacity" in {
     val cache = new Lesson6LRUCache(capacity = 1)
